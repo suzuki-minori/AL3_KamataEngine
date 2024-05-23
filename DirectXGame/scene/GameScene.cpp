@@ -4,13 +4,21 @@
 
 GameScene::GameScene() {}
 
-GameScene::~GameScene() {}
+GameScene::~GameScene() {
+}
 
 void GameScene::Initialize() {
 
 	dxCommon_ = DirectXCommon::GetInstance();
 	input_ = Input::GetInstance();
 	audio_ = Audio::GetInstance();
+
+	//3Dモデルデータの生成
+	Model*model_;
+	model_=nullptr;
+
+	ViewProjection*viewProjection_=nullptr;
+
 }
 
 void GameScene::Update() {}
@@ -56,6 +64,10 @@ void GameScene::Draw() {
 
 	// スプライト描画後処理
 	Sprite::PostDraw();
+
+
+
+	for(std::vector)
 
 #pragma endregion
 }

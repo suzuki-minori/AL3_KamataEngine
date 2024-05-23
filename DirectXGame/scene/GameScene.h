@@ -40,6 +40,14 @@ public: // メンバ関数
 	/// </summary>
 	void Draw();
 
+	//3Dモデルデータ
+
+
+
+	//
+	ViewProjection*viewProjection_;
+
+
 private: // メンバ変数
 	DirectXCommon* dxCommon_ = nullptr;
 	Input* input_ = nullptr;
