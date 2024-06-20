@@ -11,13 +11,19 @@ void GameScene::Initialize() {
 	dxCommon_ = DirectXCommon::GetInstance();
 	input_ = Input::GetInstance();
 	audio_ = Audio::GetInstance();
+	modelSkydome_=Model::CreateFromOBJ("skydome",true);
+	player_=new Player();
+	player_->Initialize();
 }
 
-void GameScene::Update() {}
+void GameScene::Update() {
+	player_->Update();
+}
 
 void GameScene::Draw() {
 
 	// コマンドリストの取得
+
 	ID3D12GraphicsCommandList* commandList = dxCommon_->GetCommandList();
 
 #pragma region 背景スプライト描画
@@ -32,6 +38,7 @@ void GameScene::Draw() {
 	Sprite::PostDraw();
 	// 深度バッファクリア
 	dxCommon_->ClearDepthBuffer();
+
 #pragma endregion
 
 #pragma region 3Dオブジェクト描画
@@ -39,13 +46,19 @@ void GameScene::Draw() {
 	Model::PreDraw(commandList);
 
 	/// <summary>
-	/// ここに3Dオブジェクトの描画処理を追加できる
+	/// ここに3Dオブジェクトの
+	/// 描画処理を追加できる
 	/// </summary>
+	player_->Draw();
+
+
 
 	// 3Dオブジェクト描画後処理
 	Model::PostDraw();
 #pragma endregion
 
+	delete modelSkydome_;
+	delete player_;
 #pragma region 前景スプライト描画
 	// 前景スプライト描画前処理
 	Sprite::PreDraw(commandList);
@@ -59,3 +72,4 @@ void GameScene::Draw() {
 
 #pragma endregion
 }
+

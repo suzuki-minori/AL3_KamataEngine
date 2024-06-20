@@ -8,12 +8,6 @@
 #include "ViewProjection.h"
 #include "WorldTransform.h"
 #include "Player.h"
-#include "DebugCamera.h"
-#include "Skydome.h"
-
-#include <vector>
-#include"Skydome.h"
-
 
 
 
@@ -60,7 +54,6 @@ private: // メンバ変数
 	uint32_t textureHandle_ = 0;
 	// 3Dモデル
 	Model* model_ = nullptr;
-	Model* modelBlock_ = nullptr;
 	// ワールドトランスフォーム
 	WorldTransform worldTransform_;
 	// ビュープロジェクション
@@ -68,17 +61,4 @@ private: // メンバ変数
 
 	// 自キャラ
 	Player* player_ = nullptr;
-
-	// 縦横ブロック配列
-	std::vector<std::vector<WorldTransform*>> worldTransformBlocks_;
-
-	// デバッグカメラ有効
-	bool isDebugCameraActive_ = false;
-	// デバッグカメラ
-	DebugCamera* debugCamera_ = nullptr;
-
-	//天球
-	Skydome* skydome_ = nullptr;
-	// 3Dモデル
-	Model* modelSkydome_ = nullptr;
 };
