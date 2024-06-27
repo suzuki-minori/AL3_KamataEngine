@@ -5,6 +5,7 @@
 GameScene::GameScene() {}
 
 GameScene::~GameScene() {
+	delete model_;
 }
 
 void GameScene::Initialize() {
@@ -16,8 +17,16 @@ void GameScene::Initialize() {
 	//3Dモデルデータの生成
 	Model*model_;
 	model_=nullptr;
+	model_=Model::Create();
 
 	ViewProjection*viewProjection_=nullptr;
+
+	textureHandle_=TextureManager::Load("tantei.png");
+
+	//
+	//worldTransform_.Initialize();
+	//
+	viewProjection_->Initialize();
 
 }
 
@@ -67,7 +76,7 @@ void GameScene::Draw() {
 
 
 
-	for(std::vector)
+	
 
 #pragma endregion
 }
