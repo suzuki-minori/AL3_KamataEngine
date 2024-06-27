@@ -8,6 +8,7 @@
 #include "Sprite.h"
 #include "ViewProjection.h"
 #include "WorldTransform.h"
+#include"DebugCamera.h"
 
 
 /// <summary>
@@ -45,6 +46,7 @@ private: // メンバ変数
 	DirectXCommon* dxCommon_ = nullptr;
 	Input* input_ = nullptr;
 	Audio* audio_ = nullptr;
+	DebugCamera*debugCamera_=nullptr;
 
 	uint32_t textureHandle_=0;
 	uint32_t soundDataHandle_=0;
